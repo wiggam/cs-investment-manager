@@ -278,6 +278,7 @@ class AddItemWindow(QMainWindow):
         if response.status_code == 200:
             QMessageBox.information(self, 'Success', 'Item added successfully.')
             self.close()
+            self.parent().update_table()
         else:
             self.show_error_popup('Error', 'An error occurred while adding the item.')
 
@@ -368,7 +369,6 @@ class UpdateItemWindow(QMainWindow):
             QMessageBox.information(self, 'Success', 'Item updated successfully.')
             self.close()
             self.parent().update_table()
-            self.parent().update_statistics()
         else:
             self.show_error_popup('Error', 'An error occurred while updating the item.')
 
@@ -461,7 +461,6 @@ class UpdatePricesWindow(QMainWindow):
         QMessageBox.information(self, 'Update Complete', 'Prices updated successfully.')
         self.close()
         self.parent().update_table()
-        self.parent().update_statistics()
 
     def show_error_popup(self, title: str, message: str):
         QMessageBox.critical(self, title, message)
@@ -502,7 +501,6 @@ class DeleteItemWindow(QMainWindow):
             QMessageBox.information(self, 'Success', 'Item deleted successfully.')
             self.close()
             self.parent().update_table()
-            self.parent().update_statistics()
         else:
             self.show_error_popup('Error', 'An error occurred while deleting the item.')
 
