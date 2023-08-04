@@ -43,6 +43,3 @@ if __name__ == '__main__':
     stop_event.wait()  # Wait for either the UI or FastAPI to be closed
     fastapi_process.terminate()
     ui_process.terminate()
-
-    
-
